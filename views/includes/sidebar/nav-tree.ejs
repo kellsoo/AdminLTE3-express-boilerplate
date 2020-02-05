@@ -1,0 +1,9 @@
+<li class="nav-item has-treeview menu-<%= "open" %>">
+    <a href="#" class="nav-link">
+        <i class="<%=icon%>"></i>
+        <p> <%= header %> <i class="fas fa-angle-left right"></i> </p>
+    </a>
+    <ul class="nav nav-treeview ">
+        <%- include('nav-item', {header: "test", href:"pages/widgets.html", icon:"nav-icon fas fa-tree"}) %>
+    </ul>
+</li>

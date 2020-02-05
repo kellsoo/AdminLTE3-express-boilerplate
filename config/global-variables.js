@@ -26,6 +26,9 @@ exports.setGlobalVariables = () => {
         // ------ ENV
         global.__env = path.join(__root, "env");
 
+        // ------ Functions
+        global.__functions = path.join(__root, "functions");
+
         // ------ Middleware
         global.__middleware = path.join(__root, "middleware");
 
