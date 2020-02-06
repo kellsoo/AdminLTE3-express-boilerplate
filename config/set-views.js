@@ -16,15 +16,18 @@ const testView2 = pages.cretePage("test", "test2", "/test_test", "tachometer-alt
 
 const pageList = [];
 pageList.push(homeView);
+pageList.push(testView);
+pageList.push(testView2);
+
 const navBar = [];
 navBar.push(homeView);
 navBar.push(testView);
 navBar.push(testView2);
 
 const sideBar = [];
-const treeView = pages.creteTreeView("jasna", "tachometer-alt", []);
+const treeView = pages.creteTreeView("Jasná", "tachometer-alt", []);
 sideBar.push(homeView);
-sideBar.push(treeView);
+// sideBar.push(treeView);
 
 const mainAppStructure = new AppStructure("TMR adskubo", currentUser, pageList, navBar, sideBar, "red", "light");
 

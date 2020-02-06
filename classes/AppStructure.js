@@ -1,3 +1,6 @@
+// 3rd party modules
+const _ = require("lodash");
+
 class AppStructure {
     constructor(appName, currentUser, pageList, navBar, sideBar, navBarColor, sideBarColor) {
         // appName is title title of whole template
@@ -10,6 +13,12 @@ class AppStructure {
         this.sideBar = sideBar;
         this.navBarColor = navBarColor;
         this.sideBarColor = sideBarColor;
+    }
+
+    setInactive() {
+        if (this.currentPage) {
+            this.currentPage.status = "inactive";
+        }
     }
 
     getCurrentPage(url) {
@@ -27,6 +36,13 @@ class AppStructure {
 
     addTreePageToSideBar(treePage) {
         this.sideBar.push(treePage);
+    }
+
+    addPageToTreeView(treeViewTitle, page) {
+        const foundTreeView = this.sideBar.find((treeView) => treeView.title === treeViewTitle);
+        if (foundTreeView) {
+            if (_.isArray(foundTreeView.pages)) foundTreeView.pages.push(page);
+        }
     }
 
     setActivePage(url) {

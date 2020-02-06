@@ -18,6 +18,8 @@ module.exports.cretePage = (title, name, url, icon) => {
     // Page can be active || inactive
     pageObject.status = "inactive";
 
+    pageObject.type = "page";
+
     return pageObject;
 };
 
@@ -29,8 +31,10 @@ module.exports.creteTreeView = (title, icon, pages) => {
     treeViewObject.icon = `nav-icon fas fa-${icon}`;
     treeViewObject.pages = pages;
 
-    // treeview can be open || closed
+    // treeView can be open || closed
     treeViewObject.status = "closed";
+
+    treeViewObject.type = "treeView";
 
     return treeViewObject;
 };

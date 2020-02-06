@@ -5,24 +5,11 @@ const path = require("path");
 const express = require("express");
 
 // controllers
-const mainController = require(path.join(__controllers, "main"));
+const mainController = require(__main_controller);
 
 const router = express.Router();
 
 router.get("/", mainController.getIndex);
-
-router.get("/test_test", (req, res, next) => {
-    const sideBar = [];
-
-    const sideBarItem = {
-        name: "test",
-        icon: "nav-icon fas fa-tree",
-        href: "/"
-    };
-
-    res.status(200).render("test", {
-        pageTitle: "test"
-    });
-});
+router.get("/test", mainController.getTest);
 
 module.exports = router;

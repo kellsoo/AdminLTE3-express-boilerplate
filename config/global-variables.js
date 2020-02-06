@@ -17,6 +17,8 @@ exports.setGlobalVariables = () => {
 
         // ------ Controllers
         global.__controllers = path.join(__root, "controllers");
+        global.__main_controller = path.join(__controllers, "main");
+        global.__auth_controller = path.join(__controllers, "auth");
         global.__error_controller = path.join(__controllers, "error");
 
         // ------ Data
@@ -42,6 +44,8 @@ exports.setGlobalVariables = () => {
 
         // ------ Routes
         global.__routes = path.join(__root, "routes");
+        global.__main_routes = path.join(__routes, "main");
+        global.__auth_routes = path.join(__routes, "auth");
 
         // ------ Util
         global.__util = path.join(__root, "util");

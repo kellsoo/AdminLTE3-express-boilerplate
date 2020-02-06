@@ -14,7 +14,9 @@ const setGlobalVariables = require(path.join(__dirname, "config", "global-variab
 setGlobalVariables()
     .then((message) => {
         // Modules
-        const mainRoutes = require(path.join(__routes, "main"));
+        const mainRoutes = require(__main_routes);
+        const authRoutes = require(__auth_routes);
+
         const errorController = require(path.join(__error_controller));
 
         // classes
@@ -45,7 +47,8 @@ setGlobalVariables()
         const IP = process.env.ip || "localhost";
 
         // Main routes
-        app.use("/", mainRoutes);
+        app.use(mainRoutes);
+        app.use(authRoutes);
 
         // 404 handle
         app.use(errorController.get404);
