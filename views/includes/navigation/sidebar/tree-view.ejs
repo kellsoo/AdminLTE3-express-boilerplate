@@ -1,0 +1,20 @@
+<li class="nav-item has-treeview menu-<%= status %>">
+    <a href="#" class="nav-link">
+        <i class="<%= icon %>"></i>
+        <p> <%= title %> <i class="fas fa-angle-left right"></i> </p>
+    </a>
+    <ul class="nav nav-treeview ">
+        <% if(pages.length > 0) {
+            pages.forEach(page => { %>
+                 <%- include('../nav-item-with-icon',
+                    {
+                        url:page.url,
+                        name:page.name,
+                        status: page.status,
+                        icon: "far fa-circle nav-icon"
+                    }) 
+                %>
+            <% })
+        } %>
+    </ul>
+</li>

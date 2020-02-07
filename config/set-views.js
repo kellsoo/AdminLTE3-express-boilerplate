@@ -26,8 +26,17 @@ navBar.push(testView2);
 
 const sideBar = [];
 const treeView = pages.creteTreeView("Jasná", "tachometer-alt", []);
+const treeView2 = pages.creteTreeView("Jasná", "tachometer-alt", []);
+
 sideBar.push(homeView);
-// sideBar.push(treeView);
+sideBar.push(treeView);
+sideBar.push(treeView2);
+treeView.pages.push(homeView);
+treeView.pages.push(testView);
+treeView.pages.push(testView2);
+
+treeView2.pages.push(testView);
+treeView2.pages.push(testView2);
 
 const mainAppStructure = new AppStructure("TMR adskubo", currentUser, pageList, navBar, sideBar, "red", "light");
 

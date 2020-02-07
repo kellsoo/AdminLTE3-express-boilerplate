@@ -19,15 +19,35 @@ class AppStructure {
         if (this.currentPage) {
             this.currentPage.status = "inactive";
         }
+        this.setClosedTreeView();
     }
 
     getCurrentPage(url) {
-        if (this.currentPage) {
-            this.currentPage.status = "inactive";
-        }
+        this.setInactive();
         this.currentPage = this.pageList.find((page) => page.url === url);
         this.currentPage.status = "active";
+        this.setOpenTreeView();
         return this.currentPage;
+    }
+
+    setClosedTreeView() {
+        this.sideBar.forEach((treeView) => {
+            if (treeView.type === "treeView") {
+                treeView.status = "closed";
+            }
+        });
+    }
+
+    setOpenTreeView(url) {
+        this.sideBar.forEach((treeView) => {
+            if (treeView.type === "treeView") {
+                treeView.status = "closed";
+                const isThereActivePage = treeView.pages.find((page) => page.status === "active");
+                if (isThereActivePage) {
+                    treeView.status = "open";
+                }
+            }
+        });
     }
 
     addPageToNavBar(page) {
