@@ -23,6 +23,7 @@ const navBar = [];
 navBar.push(homeView);
 navBar.push(testView);
 navBar.push(testView2);
+navBar.push(testView2);
 
 const sideBar = [];
 const treeView = pages.creteTreeView("Jasná", "tachometer-alt", []);
@@ -33,6 +34,7 @@ sideBar.push(treeView);
 sideBar.push(treeView2);
 treeView.pages.push(homeView);
 treeView.pages.push(testView);
+treeView.pages.push(testView2);
 treeView.pages.push(testView2);
 
 treeView2.pages.push(testView);
