@@ -26,4 +26,4 @@ npm run dev
 
 ### Author
 
-kellsoo
+kellsoo - kellsoon@gmail.com
