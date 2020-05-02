@@ -28,6 +28,7 @@ global.__env = path.join(__root, "env");
 // ------ Functions ------
 global.__functions = path.join(__root, "functions");
 global.__messages = path.join(__functions, "messages");
+global.__admin_lte_setter = path.join(__functions, "admin-lte-setter");
 
 // ------ Middleware ------
 global.__middleware = path.join(__root, "middleware");
@@ -45,7 +46,6 @@ global.__auth_routes = path.join(__routes, "auth");
 
 // ------ Util ------
 global.__util = path.join(__root, "util");
-global.__db_handler = path.join(__util, "sequelize-dev");
 
 // ------ Views ------
 global.__views = path.join(__root, "views");

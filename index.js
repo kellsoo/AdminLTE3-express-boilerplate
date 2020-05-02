@@ -1,21 +1,24 @@
 // Node core modules
 const path = require("path");
 
-// 3rd party modules
-const express = require("express");
-const bodyParser = require("body-parser");
 // Initialize express app
+const express = require("express");
 const app = express();
 
+// Set global variables
 require(path.join(__dirname, "config", "global-variables"));
+
+// Set admin lte static and assets files
+require(__admin_lte_setter)(app, express);
+
+// Middleware modules
+const bodyParser = require("body-parser");
+const logger = require("morgan");
 
 const errorController = require(path.join(__error_controller));
 
 // classes
 const messages = require(__messages);
-
-// DB test
-const connection = require(__connect_app_structure_db);
 
 // env
 require(__config_env);
@@ -23,17 +26,12 @@ require(__config_env);
 app.set("view engine", "ejs");
 app.set("views");
 
-// Body-parser, false means that you cannot parse nested objects!!!!
+// Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(logger("dev"));
 
 // Set static files
 app.use(express.static(path.join(__dirname, "public")));
-
-// admin-lte static files
-app.use("/build/", express.static(path.join(__root, "node_modules", "admin-lte", "build")));
-app.use("/dist/", express.static(path.join(__root, "node_modules", "admin-lte", "dist")));
-app.use("/pages/", express.static(path.join(__root, "node_modules", "admin-lte", "pages")));
-app.use("/plugins/", express.static(path.join(__root, "node_modules", "admin-lte", "plugins")));
 
 // Routes
 const mainRoutes = require(__main_routes);

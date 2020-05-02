@@ -10,16 +10,15 @@ const messages = require(__messages);
 // console.log("test");
 
 // initializing
-const sequelize = new Sequelize({ dialect: "sqlite", storage: __app_structure_db });
+const sequelize = new Sequelize({ dialect: "sqlite", storage: __app_structure_db, logging: false });
 
 sequelize
     .authenticate()
     .then(() => {
         let msg = `app structure db connected...`;
-        console.log(messages.successFirstMethod(msg));
+        console.log(messages.successMethod(msg));
     })
     .catch((err) => {
-        console.log(err);
         let msg = "Unable to connect to the database:";
         return messages.errorSimpleMethod(msg, err);
     });
