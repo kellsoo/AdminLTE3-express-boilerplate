@@ -1,14 +1,14 @@
 <!-- Navbar -->
 <nav class="main-header navbar navbar-expand navbar-<%= appStructure.navBarColor%> navbar-light">
     <!-- Left navbar --> 
-    <%- include('./top-navigation-objects/left-navbar-links.ejs') %>
+    <%- include(__left_navbar_links) %>
     
     <% if(false) { %>
 
         <!-- Search form --> 
-        <%- include('./top-navigation-objects/search-form.ejs') %>
+        <%- include(__search_form) %>
         <!-- message and other -->
-        <%- include('./top-navigation-objects/right-navbar-links.ejs') %>
+        <%- include(__right_navbar_links) %>
 
     <% } %>
 </nav>

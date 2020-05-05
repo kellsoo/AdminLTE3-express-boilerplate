@@ -40,6 +40,6 @@ treeView.pages.push(testView2);
 treeView2.pages.push(testView);
 treeView2.pages.push(testView2);
 
-const mainAppStructure = new AppStructure("TMR adskubo", currentUser, pageList, navBar, sideBar, "red", "light");
+const mainAppStructure = new AppStructure("adminLTE3", currentUser, pageList, navBar, sideBar, "blue", "dark");
 
 module.exports = mainAppStructure;

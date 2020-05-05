@@ -11,6 +11,9 @@ require(path.join(__dirname, "config", "global-variables"));
 // Set admin lte static and assets files
 require(__admin_lte_setter)(app, express);
 
+// 3rd party
+const chalk = require("chalk");
+
 // Middleware modules
 const bodyParser = require("body-parser");
 const logger = require("morgan");
@@ -35,11 +38,13 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Routes
 const mainRoutes = require(__main_routes);
+const adminRoutes = require(__admin_routes);
 const authRoutes = require(__auth_routes);
 
 // Main routes
 app.use(mainRoutes);
-app.use(authRoutes);
+app.use("/admin", adminRoutes);
+app.use("/auth", authRoutes);
 
 // 404 handle
 app.use(errorController.get404);
@@ -50,5 +55,5 @@ const IP = process.env.IP || "localhost";
 
 // Server listen
 app.listen(PORT, IP, () => {
-    console.log(messages.successFirstMethod(`server started on ${IP}:${PORT}...`));
+    console.log(messages.successFirstMethod(`server started on ${chalk.yellow(IP)}:${chalk.yellow(PORT)}...`));
 });

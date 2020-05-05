@@ -7,7 +7,7 @@
     <% if(appStructure) {
         if(appStructure.navBar.length >=0) { 
             appStructure.navBar.forEach(page => { %>
-                <%- include('../nav-item', {name: page.name, url:page.url, status:page.status}) %>
+                <%- include(__nav_item, {name: page.name, url:page.url, status:page.status}) %>
             <% })
             }
         } %>

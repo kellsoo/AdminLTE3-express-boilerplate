@@ -7,8 +7,6 @@ const Sequelize = require("sequelize");
 // Messages
 const messages = require(__messages);
 
-// console.log("test");
-
 // initializing
 const sequelize = new Sequelize({ dialect: "sqlite", storage: __app_structure_db, logging: false });
 

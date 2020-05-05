@@ -7,4 +7,5 @@ module.exports = (app, express) => {
     app.use("/dist/", express.static(path.join(__root, "node_modules", "admin-lte", "dist")));
     app.use("/pages/", express.static(path.join(__root, "node_modules", "admin-lte", "pages")));
     app.use("/plugins/", express.static(path.join(__root, "node_modules", "admin-lte", "plugins")));
+    app.use("/images/", express.static(path.join(__root, "/images")));
 };
