@@ -14,6 +14,8 @@ const TreeView = require(path.join(__app_structure_models, "tree-view"));
 Page.getAllPages();
 App.getApp();
 
+("Just my test DEV");
+
 const currentUser = {
     name: "Petko",
     url: "/profile"
