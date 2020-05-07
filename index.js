@@ -11,6 +11,9 @@ require(path.join(__dirname, "config", "global-variables"));
 // Set admin lte static and assets files
 require(__admin_lte_setter)(app, express);
 
+// DB-handler
+const dbHandler = require(__db_handler);
+
 // 3rd party
 const chalk = require("chalk");
 
@@ -49,11 +52,16 @@ app.use("/auth", authRoutes);
 // 404 handle
 app.use(errorController.get404);
 
-// Environment variables
-const PORT = process.env.PORT || 5000;
-const IP = process.env.IP || "localhost";
+dbHandler
+    .connect()
+    .then((result) => {
+        // Environment variables
+        const PORT = process.env.PORT || 5000;
+        const IP = process.env.IP || "localhost";
 
-// Server listen
-app.listen(PORT, IP, () => {
-    console.log(messages.successFirstMethod(`server started on ${chalk.yellow(IP)}:${chalk.yellow(PORT)}...`));
-});
+        // Server listen
+        app.listen(PORT, IP, () => {
+            console.log(messages.successMethod(`server started on ${chalk.yellow(IP)}:${chalk.yellow(PORT)}...`));
+        });
+    })
+    .catch((err) => {});

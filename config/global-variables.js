@@ -36,6 +36,7 @@ global.__middleware = path.join(__root, "middleware");
 
 // ------ DB models ------
 global.__models = path.join(__root, "models");
+global.__app_structure_models = path.join(__models, "app-structure");
 
 // ------ Public ------
 global.__public = path.join(__root, "public");
@@ -48,6 +49,8 @@ global.__admin_routes = path.join(__routes, "admin");
 
 // ------ Util ------
 global.__util = path.join(__root, "util");
+global.__app_structure_db_setter = path.join(__util, "app-structure-db-setter");
+global.__db_handler = path.join(__util, "db-handler");
 
 // ------ Views ------
 global.__views = path.join(__root, "views");

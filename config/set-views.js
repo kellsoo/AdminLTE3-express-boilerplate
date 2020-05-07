@@ -5,6 +5,15 @@ const path = require("path");
 const pages = require(path.join(__functions, "pages"));
 const AppStructure = require(path.join(__classes, "AppStructure"));
 
+// admin-lte db models
+const Page = require(path.join(__app_structure_models, "page"));
+const App = require(path.join(__app_structure_models, "app"));
+
+const TreeView = require(path.join(__app_structure_models, "tree-view"));
+
+Page.getAllPages();
+App.getApp();
+
 const currentUser = {
     name: "Petko",
     url: "/profile"
